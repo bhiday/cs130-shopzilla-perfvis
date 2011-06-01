@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>
+Performance Visualizer - Configure Webapps
+</title>
+</head>
+<body>
+
+<table>
+<tr>
+	<th>
+		Webapp Name
+	</th>
+	<th>
+		Webapp URI
+	</th>
+	<th>
+		Polling Interval
+	</th>
+</tr>
+{{#webappList}}
+<tr>
+	<td>
+		{{webappName}}
+	</td>
+	<td>
+		{{webappURI}}
+	</td>
+	<td>
+		{{webappPollInterval}}
+	</td>
+	<td>
+		<a href="edit?id={{id}}">Edit</a>
+	</td>
+	<td>
+		<a href="delete?id={{id}}">Delete</a>
+	</td>	
+</tr>
+{{/webappList}}
+
+</table>
+
+
+<form method="post" action="modify">
+<table>
+<tr>
+	<td>
+		Webapp Name
+	</td>
+	<td>
+		<input type="hidden" value="{{inp_webappId}}" name="hidden_webappId" />
+		<input type="text" value="{{inp_webappName}}" name="tb_webappName" />
+	</td>
+</tr>
+<tr>
+	<td>
+		Webapp URI
+	</td>
+	<td>
+		<input type="text" value="{{inp_webappURI}}" name="tb_webappURI" />
+	</td>
+</tr>
+<tr>
+	<td>
+		Poll Interval
+	</td>
+	<td>
+		<input type="text"value="{{inp_webappPollInterval}}" name="tb_webappPollInterval" />
+	</td>
+</tr>
+<tr>
+	<td colspan="2" align="center">
+		<input type="submit" value="Add/Save" />
+	</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

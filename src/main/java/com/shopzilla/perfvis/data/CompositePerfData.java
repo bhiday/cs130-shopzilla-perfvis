@@ -30,9 +30,9 @@ public class CompositePerfData {
     @Column(name = "exec_time")
     private Long execTime;
 
-    public static void storeCompositePerfData(CompositePerfData compositePerfData) {
+    /*public static void storeCompositePerfData(CompositePerfData compositePerfData) {
         entityManager().persist(compositePerfData);   
-    }
+    }*/
     
     @SuppressWarnings("unchecked")
 	public static List<CompositePerfData> getCompositePerfDatabyWebapp(String webappName) {

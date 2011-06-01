@@ -41,7 +41,13 @@ public class HomeController {
     public String index() {
         return "home/index";
     }*/
-
+	
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public String showHomepage(Model uiModel)
+	{
+		return "views/home/index";
+	}
+	
     @Transactional
     @RequestMapping(value = "test/store", method = RequestMethod.GET)
     public @ResponseBody String storetest(Model uiModel) {
@@ -51,7 +57,7 @@ public class HomeController {
         cpd.setExecTime(1000L);
         cpd.setInvokeTime(new Date());
         cpd.setMethodName("method");
-        CompositePerfData.storeCompositePerfData(cpd);
+        cpd.persist();
 
         return "Success!";
     }
@@ -73,7 +79,8 @@ public class HomeController {
     	for (CompositePerfData cpd : cpdList)
     	{
     		cpd.setWebappName("camera-webapp");
-    		CompositePerfData.storeCompositePerfData(cpd);
+    		//CompositePerfData.storeCompositePerfData(cpd);
+    		cpd.persist();
     	}
     	
     	return "Inserted into database!";

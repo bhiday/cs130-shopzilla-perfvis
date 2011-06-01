@@ -5,6 +5,7 @@
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
         <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
             <menu:item id="i_controller__homeindex_id" messageCode="global_generic" url="/home/index" z="RdkJRXBjwI2iuen0Vi10ZBIeuWk="/>
+            <menu:item id="i_controller__webapp_index_id" messageCode="global_generic" url="/webapp//index" z="yNSXxrb/iKpo3RXRIzpRRb2W7Qc="/>
         </menu:category>
     </menu:menu>
 </div>

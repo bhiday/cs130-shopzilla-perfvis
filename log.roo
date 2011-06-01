@@ -36,3 +36,19 @@ hint
 help
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-05-31 19:37:06
 help
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-01 12:30:51
+hint
+hint entities
+entity --class com.shopzilla.perfvis.data.WebappData
+hint
+hint entities
+hint
+field string --fieldName webappName --column webapp_name
+field string --fieldName webappURI --column webapp_uri
+field number --fieldName webappPollInterval --type java.lang.Long --column webapp_poll_interval
+test integration 
+perform tests
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-01 12:35:32
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-01 12:40:11
+web mvc controller --class com.shopzilla.perfvis.web.WebappController --preferredMapping /webapp/
