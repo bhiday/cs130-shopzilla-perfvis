@@ -1,0 +1,38 @@
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-05-31 18:43:06
+hint
+project --topLevelPackage com.shopzilla.perfvis
+hint
+web mvc setup
+hint
+persistence setup --provider HIBERNATE --database MYSQL 
+database properties list
+database properties set --key database.password --value asdfg
+database properties set --key database.username --value shopzilla-mon
+database properties set --key database.url --value jdbc:mysql://localhost:3306/shopzilla-mon
+database introspect --schema shopzilla-mon
+hint
+entity --class ~.data.CompositePerfData
+field string --fieldName webappName --column webapp_name
+field string --fieldName methodName --column method_name
+field date --fieldName invokeTime --type java.util.Date --column invoke_time
+field number --fieldName execTime --type java.lang.Long --column exec_time
+hint
+help
+web mvc controller --class com.shopzilla.perfvis.web.HomeController
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-05-31 18:48:27
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-05-31 18:48:44
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-05-31 18:48:55
+test integration --entity com.shopzilla.perfvis.data.CompositePerfData
+hint
+perform tests
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-05-31 18:49:43
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-05-31 18:51:36
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-05-31 18:51:45
+hint logging
+logging setup --level DEBUG
+hint
+help
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-05-31 19:37:06
+help
