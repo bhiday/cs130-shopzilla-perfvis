@@ -6,6 +6,7 @@
         <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
             <menu:item id="i_controller__homeindex_id" messageCode="global_generic" url="/home/index" z="RdkJRXBjwI2iuen0Vi10ZBIeuWk="/>
             <menu:item id="i_controller__webapp_index_id" messageCode="global_generic" url="/webapp//index" z="yNSXxrb/iKpo3RXRIzpRRb2W7Qc="/>
+            <menu:item id="i_controller__ajax_index_id" messageCode="global_generic" url="/ajax//index" z="W3iZ1XRYg5PL9YdAnAMNdOIswt0="/>
         </menu:category>
     </menu:menu>
 </div>

@@ -53,7 +53,7 @@ public class HomeController {
     public @ResponseBody String storetest(Model uiModel) {
 
         CompositePerfData cpd = new CompositePerfData();
-        cpd.setWebappName("webapp");
+        cpd.setWebappId(1234L);
         cpd.setExecTime(1000L);
         cpd.setInvokeTime(new Date());
         cpd.setMethodName("method");
@@ -78,7 +78,7 @@ public class HomeController {
     	List <CompositePerfData> cpdList = parseXml("http://127.0.0.1:9090/perfvis/test/xml");
     	for (CompositePerfData cpd : cpdList)
     	{
-    		cpd.setWebappName("camera-webapp");
+    		cpd.setWebappId(1337L);
     		//CompositePerfData.storeCompositePerfData(cpd);
     		cpd.persist();
     	}

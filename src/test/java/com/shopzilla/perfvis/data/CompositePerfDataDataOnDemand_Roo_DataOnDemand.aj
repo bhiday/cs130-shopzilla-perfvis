@@ -18,16 +18,16 @@ privileged aspect CompositePerfDataDataOnDemand_Roo_DataOnDemand {
     
     public CompositePerfData CompositePerfDataDataOnDemand.getNewTransientCompositePerfData(int index) {
         com.shopzilla.perfvis.data.CompositePerfData obj = new com.shopzilla.perfvis.data.CompositePerfData();
-        setWebappName(obj, index);
+        setWebappId(obj, index);
         setMethodName(obj, index);
         setInvokeTime(obj, index);
         setExecTime(obj, index);
         return obj;
     }
     
-    public void CompositePerfDataDataOnDemand.setWebappName(CompositePerfData obj, int index) {
-        java.lang.String webappName = "webappName_" + index;
-        obj.setWebappName(webappName);
+    public void CompositePerfDataDataOnDemand.setWebappId(CompositePerfData obj, int index) {
+        java.lang.Long webappId = new Integer(index).longValue();
+        obj.setWebappId(webappId);
     }
     
     public void CompositePerfDataDataOnDemand.setMethodName(CompositePerfData obj, int index) {

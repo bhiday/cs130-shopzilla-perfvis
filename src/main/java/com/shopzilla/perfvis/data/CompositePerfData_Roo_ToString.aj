@@ -14,7 +14,7 @@ privileged aspect CompositePerfData_Roo_ToString {
         sb.append("InvokeTime: ").append(getInvokeTime()).append(", ");
         sb.append("MethodName: ").append(getMethodName()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
-        sb.append("WebappName: ").append(getWebappName());
+        sb.append("WebappId: ").append(getWebappId());
         return sb.toString();
     }
     

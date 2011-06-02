@@ -9,12 +9,12 @@ import java.util.Date;
 
 privileged aspect CompositePerfData_Roo_JavaBean {
     
-    public String CompositePerfData.getWebappName() {
-        return this.webappName;
+    public Long CompositePerfData.getWebappId() {
+        return this.webappId;
     }
     
-    public void CompositePerfData.setWebappName(String webappName) {
-        this.webappName = webappName;
+    public void CompositePerfData.setWebappId(Long webappId) {
+        this.webappId = webappId;
     }
     
     public String CompositePerfData.getMethodName() {

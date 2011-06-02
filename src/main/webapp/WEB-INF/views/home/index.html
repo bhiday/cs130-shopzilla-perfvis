@@ -3,10 +3,22 @@
 <title>
 Performance Visualizer
 </title>
+<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
 
 <a href="webapp/list">List all configured web applications</a>
 
+<form name="form1">
+WebApp:
+<select name="webappList" onchange="initMethodNames(document.form1.webappList.options[document.form1.webappList.selectedIndex].value);">
+
+</select>
+
+Method:
+<select name="methodList">
+
+</select>
+</form>
 </body>
 </html>

@@ -1,0 +1,53 @@
+package com.shopzilla.perfvis.web;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.shopzilla.perfvis.data.CompositePerfData;
+import com.shopzilla.perfvis.data.WebappData;
+
+@RequestMapping("/ajax/")
+@Controller
+public class AjaxController {
+
+	@RequestMapping(value = "webapp", method = RequestMethod.GET)
+	public @ResponseBody String showWebapp(Model uiModel) {
+		List <WebappData> webappList = WebappData.findAllWebappDatas();
+		StringBuffer buf = new StringBuffer();
+		for (WebappData webappData : webappList)
+		{
+			buf.append(webappData.getId()).append(",").append(webappData.getWebappName()).append("\n");
+		}
+		return buf.toString();
+	}
+	
+	@RequestMapping(value = "method/{webappId}", method = RequestMethod.GET)
+	public @ResponseBody String showMethod(@PathVariable("webappId") Long webappId, Model uiModel) {
+		List <CompositePerfData> compositePerfDataList = CompositePerfData.getCompositePerfDataUniqueMethods(webappId);
+		StringBuffer buf = new StringBuffer();
+		for (CompositePerfData compositePerfData : compositePerfDataList)
+		{
+			buf.append(compositePerfData.getMethodName()).append(",").append(compositePerfData.getMethodName()).append("\n");
+		}
+		return buf.toString();
+	}
+	
+    /*@RequestMapping
+    public void get(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "{id}")
+    public void post(@PathVariable Long id, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
+    }
+
+    @RequestMapping
+    public String index() {
+        return "ajax//index";
+    }*/
+}

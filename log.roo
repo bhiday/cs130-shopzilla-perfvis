@@ -52,3 +52,8 @@ exit
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-01 12:35:32
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-01 12:40:11
 web mvc controller --class com.shopzilla.perfvis.web.WebappController --preferredMapping /webapp/
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-01 16:10:46
+web mvc controller --class com.shopzilla.perfvis.web.AjaxController --preferredMapping /ajax/
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-01 20:18:41
+exit
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-01 20:27:39
