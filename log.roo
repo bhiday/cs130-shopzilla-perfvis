@@ -62,3 +62,6 @@ hint
 class --class com.shopzilla.perfvis.timer.PerfDataCollector
 quit
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log closed at 2011-06-01 23:46:39
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-02 11:46:12
+hint logging
+logging setup --level INFO

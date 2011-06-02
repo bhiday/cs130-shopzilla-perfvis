@@ -4,19 +4,13 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Timer;
 
 import com.shopzilla.perfvis.data.CompositePerfData;
-import com.shopzilla.perfvis.data.WebappData;
-import com.shopzilla.perfvis.timer.PerfDataCollector;
 
 import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.methods.GetMethod;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -35,11 +29,11 @@ import org.w3c.dom.NodeList;
 @Controller
 public class HomeController {
 	
-	private static final Log LOG = LogFactory.getLog(HomeController.class);
+	//private static final Log LOG = LogFactory.getLog(HomeController.class);
 	
-	private static List<Timer> perfDataCollectors = null;
+	//private static List<Timer> perfDataCollectors = null;
 	
-	public HomeController() {
+	/*public HomeController() {
 		LOG.debug("Entered HomeController Constructor----------------------");
 		if (perfDataCollectors == null) {
 			//start timers!
@@ -47,13 +41,13 @@ public class HomeController {
 			
 			for (WebappData webappData : WebappData.findAllWebappDatas()) {
 				Timer timer = new Timer(true);
-				timer.schedule(new PerfDataCollector(webappData.getId()), Calendar.getInstance().getTime(), webappData.getWebappPollInterval() * 1000); //time in milliseconds
+				timer.schedule(new PerfDataCollectorImpl(webappData.getId()), Calendar.getInstance().getTime(), webappData.getWebappPollInterval() * 1000); //time in milliseconds
 				perfDataCollectors.add(timer);
 				//TODO: Re initialize timers when webapps are added or removed
 			}
 			
 		}
-	}
+	}*/
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String showHomepage(Model uiModel)
