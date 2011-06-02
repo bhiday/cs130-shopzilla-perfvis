@@ -44,4 +44,9 @@ public class CompositePerfData {
     	return entityManager().createQuery("SELECT o FROM CompositePerfData o WHERE webappId = :webappId GROUP BY methodName").setParameter("webappId", webappId).getResultList();
     }
 
+    @SuppressWarnings("unchecked")
+    public static List<Object[]> getCompositePerfDataMeanTimes(Long webappId) {
+    	return entityManager().createQuery("SELECT methodName, AVG(execTime) FROM CompositePerfData o WHERE webappId = :webappId GROUP BY methodName").setParameter("webappId", webappId).getResultList();
+    }
+    
 }

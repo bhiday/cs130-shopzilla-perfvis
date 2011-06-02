@@ -22,7 +22,7 @@ public class AjaxController {
 		StringBuffer buf = new StringBuffer();
 		for (WebappData webappData : webappList)
 		{
-			buf.append(webappData.getId()).append(",").append(webappData.getWebappName()).append("\n");
+			buf.append(webappData.getId()).append("|").append(webappData.getWebappName()).append("\n");
 		}
 		return buf.toString();
 	}
@@ -33,8 +33,20 @@ public class AjaxController {
 		StringBuffer buf = new StringBuffer();
 		for (CompositePerfData compositePerfData : compositePerfDataList)
 		{
-			buf.append(compositePerfData.getMethodName()).append(",").append(compositePerfData.getMethodName()).append("\n");
+			buf.append(compositePerfData.getMethodName()).append("|").append(compositePerfData.getMethodName()).append("\n");
 		}
+		return buf.toString();
+	}
+	
+    @RequestMapping(value = "stats/aggmethod/{webappId}", method = RequestMethod.GET)
+	public @ResponseBody String showAvg(@PathVariable("webappId") Long webappId, Model uiModel) {
+    	
+    	StringBuffer buf = new StringBuffer();
+    	List <Object[]> objList = CompositePerfData.getCompositePerfDataMeanTimes(webappId);
+    	for (Object[] obj : objList) {	
+			buf.append(obj[0]).append("|").append(obj[1]).append("\n");
+    	}
+    	
 		return buf.toString();
 	}
 	
