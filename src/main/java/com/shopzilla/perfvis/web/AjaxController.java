@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shopzilla.perfvis.data.CompositePerfData;
@@ -50,4 +51,19 @@ public class AjaxController {
 		return buf.toString();
 	}
 
+    @RequestMapping(value = "stats/method", method = RequestMethod.POST)
+	public @ResponseBody String showMethodStats(@RequestParam("webappId") Long webappId, @RequestParam("methodName") String methodName, Model uiModel) {
+    	
+    	methodName.replace("%20", " ");
+    	
+    	StringBuffer buf = new StringBuffer();
+    	List <CompositePerfData> cpdList = CompositePerfData.getCompositePerfDataMethodExecTimes(webappId, methodName);
+    	for (CompositePerfData cpd : cpdList) {	
+			buf.append(cpd.getInvokeTime()).append("|").append(cpd.getExecTime()).append("\n");
+    	}
+    	
+		return buf.toString();
+	}
+
+    
 }

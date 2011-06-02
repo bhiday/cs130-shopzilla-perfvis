@@ -52,4 +52,8 @@ public class CompositePerfData {
     	return entityManager().createQuery("SELECT MAX(invokeTime) FROM CompositePerfData o WHERE webappId = :webappId").setParameter("webappId", webappId).getResultList();
     }
     
+    @SuppressWarnings("unchecked")
+    public static List <CompositePerfData> getCompositePerfDataMethodExecTimes(Long webappId, String methodName) {
+    	return entityManager().createQuery("SELECT o FROM CompositePerfData o WHERE webappId = :webappId AND methodName = :methodName").setParameter("webappId", webappId).setParameter("methodName", methodName).getResultList();
+    }
 }

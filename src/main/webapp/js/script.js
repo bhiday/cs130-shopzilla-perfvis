@@ -84,3 +84,35 @@ function buildMethodNames() {
         }
     }
 }
+
+function ProcessXMLPost(url, params, funcname) {
+	  // native  object
+
+	  if (window.XMLHttpRequest) {
+	    // obtain new object
+	    obj = new XMLHttpRequest();
+	    // set the callback function
+	    obj.onreadystatechange = funcname;
+	    // we will do a GET with the url; "true" for asynch
+	    obj.open("POST", url, true);
+	    obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	    obj.setRequestHeader("Content-length", params.length);
+	    obj.setRequestHeader("Connection", "close");
+	    // null for GET with native object
+	    obj.send(params);
+	  // IE/Windows ActiveX object
+	  } else if (window.ActiveXObject) {
+	    obj = new ActiveXObject("Microsoft.XMLHTTP");
+	    if (obj) {
+	      obj.onreadystatechange = funcname;
+	      obj.open("POST", url, true);
+	      obj.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		  obj.setRequestHeader("Content-length", params.length);
+		  obj.setRequestHeader("Connection", "close");
+	      // don't send null for ActiveX
+	      obj.send(params);
+	    }
+	  } else {
+	    alert("Your browser does not support AJAX");
+	  }
+	}
