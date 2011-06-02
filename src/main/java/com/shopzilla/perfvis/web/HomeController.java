@@ -4,13 +4,19 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Timer;
 
 import com.shopzilla.perfvis.data.CompositePerfData;
+import com.shopzilla.perfvis.data.WebappData;
+import com.shopzilla.perfvis.timer.PerfDataCollector;
 
 import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -28,19 +34,26 @@ import org.w3c.dom.NodeList;
 @RequestMapping("/")
 @Controller
 public class HomeController {
-
-    /*@RequestMapping
-    public void get(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
-    }
-
-    @RequestMapping(method = RequestMethod.POST, value = "{id}")
-    public void post(@PathVariable Long id, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
-    }
-
-    @RequestMapping
-    public String index() {
-        return "home/index";
-    }*/
+	
+	private static final Log LOG = LogFactory.getLog(HomeController.class);
+	
+	private static List<Timer> perfDataCollectors = null;
+	
+	public HomeController() {
+		LOG.debug("Entered HomeController Constructor----------------------");
+		if (perfDataCollectors == null) {
+			//start timers!
+			perfDataCollectors = new ArrayList<Timer>();
+			
+			for (WebappData webappData : WebappData.findAllWebappDatas()) {
+				Timer timer = new Timer(true);
+				timer.schedule(new PerfDataCollector(webappData.getId()), Calendar.getInstance().getTime(), webappData.getWebappPollInterval() * 1000); //time in milliseconds
+				perfDataCollectors.add(timer);
+				//TODO: Re initialize timers when webapps are added or removed
+			}
+			
+		}
+	}
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String showHomepage(Model uiModel)
@@ -167,6 +180,5 @@ public class HomeController {
     	}
     	return cpdList;
     }
-    
 
 }

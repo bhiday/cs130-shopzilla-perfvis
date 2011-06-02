@@ -72,17 +72,4 @@ public class WebappController {
 		uiModel.addAttribute("inp_webappPollInterval", webappPollInterval);
 	}
 	
-	/*
-    @RequestMapping
-    public void get(ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
-    }
-
-    @RequestMapping(method = RequestMethod.POST, value = "{id}")
-    public void post(@PathVariable Long id, ModelMap modelMap, HttpServletRequest request, HttpServletResponse response) {
-    }
-
-    @RequestMapping
-    public String index() {
-        return "webapp//index";
-    }*/
 }

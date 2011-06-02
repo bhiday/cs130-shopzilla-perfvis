@@ -4,6 +4,8 @@ import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
 import javax.persistence.Column;
+
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -29,13 +31,9 @@ public class CompositePerfData {
 
     @Column(name = "exec_time")
     private Long execTime;
-
-    /*public static void storeCompositePerfData(CompositePerfData compositePerfData) {
-        entityManager().persist(compositePerfData);   
-    }*/
     
     @SuppressWarnings("unchecked")
-	public static List<CompositePerfData> getCompositePerfDatabyWebapp(String webappId) {
+	public static List<CompositePerfData> getCompositePerfDatabyWebapp(Long webappId) {
     	return entityManager().createQuery("SELECT o FROM CompositePerfData o WHERE webappId = :webappId").setParameter("webappId", webappId).getResultList();
     }
     
@@ -47,6 +45,11 @@ public class CompositePerfData {
     @SuppressWarnings("unchecked")
     public static List<Object[]> getCompositePerfDataMeanTimes(Long webappId) {
     	return entityManager().createQuery("SELECT methodName, AVG(execTime) FROM CompositePerfData o WHERE webappId = :webappId GROUP BY methodName").setParameter("webappId", webappId).getResultList();
+    }
+    
+    @SuppressWarnings("unchecked")
+    public static List<Timestamp> getCompositePerfDataMaxTimestamp(Long webappId) {
+    	return entityManager().createQuery("SELECT MAX(invokeTime) FROM CompositePerfData o WHERE webappId = :webappId").setParameter("webappId", webappId).getResultList();
     }
     
 }
