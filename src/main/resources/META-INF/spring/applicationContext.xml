@@ -87,11 +87,16 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
     
-    <context:component-scan base-package="com.shopzilla.perfvis.timer" />
+    <!-- <context:component-scan base-package="com.shopzilla.perfvis.timer" /> -->
        <!-- <context:exclude-filter expression=".*_Roo_.*" type="regex"/>
         <context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
     </context:component-scan> -->
      <!-- Activates @Scheduled and @Async annotations for scheduling -->
- 	<task:annotation-driven scheduler="taskScheduler"/>
+ 	<!-- <task:annotation-driven scheduler="taskScheduler"/> -->
+ 	
+ 	<task:scheduled-tasks scheduler="taskScheduler">
+    	<task:scheduled ref="syncWorker" method="work" fixed-delay="${datacollector.pollinterval}"/>
+	</task:scheduled-tasks>
+ 	
  	<task:scheduler id="taskScheduler" />
 </beans>

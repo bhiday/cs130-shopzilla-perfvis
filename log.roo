@@ -67,3 +67,9 @@ hint logging
 logging setup --level INFO
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-02 19:08:51
 // Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-02 19:24:32
+// Spring Roo 1.1.4.RELEASE [rev f787ce7] log opened at 2011-06-02 19:50:10
+help properties
+hint
+hint properties
+properties set --name datacollector.properties --path SRC_MAIN_RESOURCES --key datacollector.pollinterval --value 10000
+properties set --name datacollector.properties --path SPRING_CONFIG_ROOT --key datacollector.pollinterval --value 10000

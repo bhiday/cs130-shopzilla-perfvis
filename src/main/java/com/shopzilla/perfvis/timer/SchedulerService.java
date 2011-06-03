@@ -11,7 +11,7 @@ public class SchedulerService {
 	@Qualifier("syncWorker")
 	private PerfDataCollector perfDataCollector;
 
-	@Scheduled(fixedDelay=5000)	
+	//@Scheduled(fixedDelay=5000)	
 	public void doSchedule() {
 		  //logger.debug("Start schedule");
 		   
