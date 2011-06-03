@@ -16,6 +16,4 @@ public class WebappData {
     @Column(name = "webapp_uri")
     private String webappURI;
 
-    @Column(name = "webapp_poll_interval")
-    private Long webappPollInterval;
 }

@@ -12,7 +12,6 @@ privileged aspect WebappData_Roo_ToString {
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
         sb.append("WebappName: ").append(getWebappName()).append(", ");
-        sb.append("WebappPollInterval: ").append(getWebappPollInterval()).append(", ");
         sb.append("WebappURI: ").append(getWebappURI());
         return sb.toString();
     }

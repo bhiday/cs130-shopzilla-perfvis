@@ -20,7 +20,6 @@ privileged aspect WebappDataDataOnDemand_Roo_DataOnDemand {
         com.shopzilla.perfvis.data.WebappData obj = new com.shopzilla.perfvis.data.WebappData();
         setWebappName(obj, index);
         setWebappURI(obj, index);
-        setWebappPollInterval(obj, index);
         return obj;
     }
     
@@ -32,11 +31,6 @@ privileged aspect WebappDataDataOnDemand_Roo_DataOnDemand {
     public void WebappDataDataOnDemand.setWebappURI(WebappData obj, int index) {
         java.lang.String webappURI = "webappURI_" + index;
         obj.setWebappURI(webappURI);
-    }
-    
-    public void WebappDataDataOnDemand.setWebappPollInterval(WebappData obj, int index) {
-        java.lang.Long webappPollInterval = new Integer(index).longValue();
-        obj.setWebappPollInterval(webappPollInterval);
     }
     
     public WebappData WebappDataDataOnDemand.getSpecificWebappData(int index) {

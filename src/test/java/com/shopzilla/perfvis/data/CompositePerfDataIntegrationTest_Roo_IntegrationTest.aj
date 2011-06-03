@@ -41,16 +41,6 @@ privileged aspect CompositePerfDataIntegrationTest_Roo_IntegrationTest {
     }
     
     @Test
-    public void CompositePerfDataIntegrationTest.testFindAllCompositePerfDatas() {
-        org.junit.Assert.assertNotNull("Data on demand for 'CompositePerfData' failed to initialize correctly", dod.getRandomCompositePerfData());
-        long count = com.shopzilla.perfvis.data.CompositePerfData.countCompositePerfDatas();
-        org.junit.Assert.assertTrue("Too expensive to perform a find all test for 'CompositePerfData', as there are " + count + " entries; set the findAllMaximum to exceed this value or set findAll=false on the integration test annotation to disable the test", count < 250);
-        java.util.List<com.shopzilla.perfvis.data.CompositePerfData> result = com.shopzilla.perfvis.data.CompositePerfData.findAllCompositePerfDatas();
-        org.junit.Assert.assertNotNull("Find all method for 'CompositePerfData' illegally returned null", result);
-        org.junit.Assert.assertTrue("Find all method for 'CompositePerfData' failed to return any data", result.size() > 0);
-    }
-    
-    @Test
     public void CompositePerfDataIntegrationTest.testFindCompositePerfDataEntries() {
         org.junit.Assert.assertNotNull("Data on demand for 'CompositePerfData' failed to initialize correctly", dod.getRandomCompositePerfData());
         long count = com.shopzilla.perfvis.data.CompositePerfData.countCompositePerfDatas();

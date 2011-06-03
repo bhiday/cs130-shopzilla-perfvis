@@ -19,7 +19,7 @@ function drawAggStatsChart() {
         	lines = obj.responseText.split("\n"); 
             
             data.addColumn('string', 'Method Name');
-            data.addColumn('number', 'Execution Time');
+            data.addColumn('number', 'Execution Time (in milliseconds)');
             data.addRows(lines.length - 1);
            
         	
@@ -76,7 +76,7 @@ function drawMethodChart() {
         	lines = obj.responseText.split("\n"); 
             
             data.addColumn('string', 'Invoke Time');
-            data.addColumn('number', 'Execution Time');
+            data.addColumn('number', 'Execution Time (in milliseconds)');
             data.addRows(lines.length - 1);
            
         	

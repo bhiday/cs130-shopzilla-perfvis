@@ -3,7 +3,6 @@
 
 package com.shopzilla.perfvis.data;
 
-import java.lang.Long;
 import java.lang.String;
 
 privileged aspect WebappData_Roo_JavaBean {
@@ -22,14 +21,6 @@ privileged aspect WebappData_Roo_JavaBean {
     
     public void WebappData.setWebappURI(String webappURI) {
         this.webappURI = webappURI;
-    }
-    
-    public Long WebappData.getWebappPollInterval() {
-        return this.webappPollInterval;
-    }
-    
-    public void WebappData.setWebappPollInterval(Long webappPollInterval) {
-        this.webappPollInterval = webappPollInterval;
     }
     
 }

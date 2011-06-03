@@ -14,9 +14,6 @@ Performance Visualizer - Configure Webapps
 	<th>
 		Webapp URI
 	</th>
-	<th>
-		Polling Interval
-	</th>
 </tr>
 {{#webappList}}
 <tr>
@@ -25,9 +22,6 @@ Performance Visualizer - Configure Webapps
 	</td>
 	<td>
 		{{webappURI}}
-	</td>
-	<td>
-		{{webappPollInterval}}
 	</td>
 	<td>
 		<a href="edit?id={{id}}">Edit</a>
@@ -58,14 +52,6 @@ Performance Visualizer - Configure Webapps
 	</td>
 	<td>
 		<input type="text" value="{{inp_webappURI}}" name="tb_webappURI" />
-	</td>
-</tr>
-<tr>
-	<td>
-		Polling Interval
-	</td>
-	<td>
-		<input type="text"value="{{inp_webappPollInterval}}" name="tb_webappPollInterval" />
 	</td>
 </tr>
 <tr>

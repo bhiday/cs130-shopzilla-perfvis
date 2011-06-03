@@ -1,5 +1,6 @@
 package com.shopzilla.perfvis.web;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -58,8 +59,9 @@ public class AjaxController {
     	
     	StringBuffer buf = new StringBuffer();
     	List <CompositePerfData> cpdList = CompositePerfData.getCompositePerfDataMethodExecTimes(webappId, methodName);
-    	for (CompositePerfData cpd : cpdList) {	
-			buf.append(cpd.getInvokeTime()).append("|").append(cpd.getExecTime()).append("\n");
+    	for (CompositePerfData cpd : cpdList) {
+    		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			buf.append(formatter.format(cpd.getInvokeTime())).append("|").append(cpd.getExecTime()).append("\n");
     	}
     	
 		return buf.toString();

@@ -15,7 +15,7 @@ public class WebappController {
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public String showWebappList(Model uiModel) {
 		
-		setupModel(uiModel, "", "", "", "");
+		setupModel(uiModel, "", "", "");
 		return "views/webapp/list";
 	}
 	
@@ -27,7 +27,6 @@ public class WebappController {
 			
 				WebappData webappData = new WebappData();
 				webappData.setWebappName(webappName);
-				webappData.setWebappPollInterval(webappPollInterval);
 				webappData.setWebappURI(webappURI);
 				webappData.persist();
 			}
@@ -36,11 +35,10 @@ public class WebappController {
 			WebappData webappData = WebappData.findWebappData(webappId);
 			webappData.setWebappName(webappName);
 			webappData.setWebappURI(webappURI);
-			webappData.setWebappPollInterval(webappPollInterval);
 			webappData.merge();
 		}
 		
-		setupModel(uiModel, "", "", "", "");
+		setupModel(uiModel, "", "", "");
 		return "views/webapp/list";
 	}
 	
@@ -49,7 +47,7 @@ public class WebappController {
 		
 		WebappData webappData = WebappData.findWebappData(id);
 		
-		setupModel(uiModel, webappData.getId(), webappData.getWebappName(), webappData.getWebappURI(), webappData.getWebappPollInterval());		
+		setupModel(uiModel, webappData.getId(), webappData.getWebappName(), webappData.getWebappURI());		
 		return "views/webapp/list";
 	}
 	
@@ -60,16 +58,15 @@ public class WebappController {
 		
 		webappData.remove();
 		
-		setupModel(uiModel, "", "", "", "");
+		setupModel(uiModel, "", "", "");
 		return "views/webapp/list";
 	}
 	
-	private void setupModel(Model uiModel, Object webappId, Object webappName, Object webappURI, Object webappPollInterval) {
+	private void setupModel(Model uiModel, Object webappId, Object webappName, Object webappURI) {
 		uiModel.addAttribute("webappList", WebappData.findAllWebappDatas());
 		uiModel.addAttribute("inp_webappId", webappId);
 		uiModel.addAttribute("inp_webappName", webappName);
 		uiModel.addAttribute("inp_webappURI", webappURI);
-		uiModel.addAttribute("inp_webappPollInterval", webappPollInterval);
 	}
 	
 }
