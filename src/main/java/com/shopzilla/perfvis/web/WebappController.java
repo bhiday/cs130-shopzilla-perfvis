@@ -20,10 +20,10 @@ public class WebappController {
 	}
 	
 	@RequestMapping(value = "modify", method = RequestMethod.POST)
-	public String addWebapp(@RequestParam("hidden_webappId") Long webappId, @RequestParam("tb_webappName") String webappName, @RequestParam("tb_webappURI") String webappURI, @RequestParam("tb_webappPollInterval") Long webappPollInterval, Model uiModel) {
+	public String addWebapp(@RequestParam("hidden_webappId") Long webappId, @RequestParam("tb_webappName") String webappName, @RequestParam("tb_webappURI") String webappURI, Model uiModel) {
 		
 		if(webappId == null) {
-			if (webappPollInterval != null && !webappName.equals("") && !webappURI.equals("")) {
+			if (!webappName.equals("") && !webappURI.equals("")) {
 			
 				WebappData webappData = new WebappData();
 				webappData.setWebappName(webappName);
